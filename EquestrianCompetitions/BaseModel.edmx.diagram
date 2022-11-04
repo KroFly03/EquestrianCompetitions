@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d6fa52e71f1e454aac56f94c616a88e6" Name="Diagram1">
+        <EntityTypeShape EntityType="EquestrianCompetitionsModel.Jockeys" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsModel.Members" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsModel.RaceMembers" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsModel.CompetitionInfoView" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsModel.HorseInfoView" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsModel.JockeyInfoView" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsModel.MemberInfoView" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsModel.RaceScoreInfoView" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsModel.RaceView" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsModel.UserView" Width="1.5" PointX="3.875" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="EquestrianCompetitionsModel.FK__Members__jockey__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="EquestrianCompetitionsModel.FK__RaceMembe__membe__3F466844" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsModel.Users" Width="1.5" PointX="6.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

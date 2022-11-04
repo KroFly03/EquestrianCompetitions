@@ -1,0 +1,69 @@
+﻿<Page x:Class="EquestrianCompetitions.Pages.JockeyEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EquestrianCompetitions.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="JockeyEditPage"
+      Loaded="Window_Loaded"
+      Background="White">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right">
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Width" Value="150"/>
+                    <Setter Property="Margin" Value="15"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="Логин"/>
+            <TextBlock Text="ФИО"/>
+            <TextBlock Text="День рождения"/>
+            <TextBlock Text="Ранг"/>
+            <TextBlock Text="Вес"/>
+            <TextBlock Text=""/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Width" Value="150"/>
+                    <Setter Property="Margin" Value="15"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Width" Value="250"/>
+                    <Setter Property="Margin" Value="15"/>
+                </Style>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="250"/>
+                    <Setter Property="Margin" Value="15"/>
+                </Style>
+                <Style TargetType="DatePicker">
+                    <Setter Property="Width" Value="250"/>
+                    <Setter Property="Margin" Value="15"/>
+                </Style>
+                <Style TargetType="ComboBox">
+                    <Setter Property="Width" Value="250"/>
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Name="LoginInput" Text="{Binding login}"/>
+            <TextBox Name="FioInput" Text="{Binding fio}"/>
+            <DatePicker Name="Birthday" Text="{Binding birthday}"/>
+            <TextBox Name="Rank" Text="{Binding rank}"/>
+            <TextBox Name="Weight" Text="{Binding weight}"/>
+            <Button Content="Сохранить" Name="SaveButton" Click="SaveButton_Click"/>
+        </StackPanel>
+        <Button x:Name="BackButton" Content="Назад" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BackButton_Click"/>
+    </Grid>
+</Page>

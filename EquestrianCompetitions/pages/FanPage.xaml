@@ -1,0 +1,43 @@
+﻿<Page x:Class="EquestrianCompetitions.Pages.FanPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EquestrianCompetitions.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FanPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="16"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+        </Grid.Resources>
+        <StackPanel>
+            <Button x:Name="HorseInfoButton" Content="Просмотреть информацию&#xa; о лошадях" Click="HorseInfoButton_Click"/>
+            <Button x:Name="JockeyInfoButton" Content="Просмотреть информацию&#xa; о жокеях" Click="JockeyInfoButton_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Button x:Name="CompetitionInfoButton" Content="Просмотреть информацию&#xa; о состязаниях и заездах" Click="CompetitionInfoButton_Click"/>
+            <Button x:Name="MemberInfoButton" Content="Просмотр информации&#xa; об участниках заезда" Click="MemberInfoButton_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2">
+            <Button x:Name="RaceScoreInfoButton" Content="Просмотр результатов&#xa; заезда" Click="RaceScoreInfoButton_Click"/>
+            <Button x:Name="DonateButton" Content="Пожертвовать средства&#xa; на содержание лошади" Click="DonateButton_Click"/>
+        </StackPanel>
+        <Button x:Name="BackButton" Content="Назад" Click="BackButton_Click" Grid.Column="1" Grid.Row="1"/>
+    </Grid>
+</Page>
