@@ -4,20 +4,34 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d6fa52e71f1e454aac56f94c616a88e6" Name="Diagram1">
-        <EntityTypeShape EntityType="EquestrianCompetitionsModel.Jockeys" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="EquestrianCompetitionsModel.Members" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EquestrianCompetitionsModel.RaceMembers" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="EquestrianCompetitionsModel.CompetitionInfoView" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EquestrianCompetitionsModel.HorseInfoView" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EquestrianCompetitionsModel.JockeyInfoView" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EquestrianCompetitionsModel.MemberInfoView" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EquestrianCompetitionsModel.RaceScoreInfoView" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EquestrianCompetitionsModel.RaceView" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EquestrianCompetitionsModel.UserView" Width="1.5" PointX="3.875" PointY="7.625" IsExpanded="true" />
-        <AssociationConnector Association="EquestrianCompetitionsModel.FK__Members__jockey__3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="EquestrianCompetitionsModel.FK__RaceMembe__membe__3F466844" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="EquestrianCompetitionsModel.Users" Width="1.5" PointX="6.375" PointY="7.75" />
+      <Diagram DiagramId="27186d6625e8483aace7802161838590" Name="Diagram1">
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.Breeds" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.Coaches" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.Competitions" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.Horses" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.Jockeys" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.Judges" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.Members" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.Races" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.Roles" Width="1.5" PointX="5.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.RaceMembers" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.Users" Width="1.5" PointX="8" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.CompetitionInfoView" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.HorseInfoView" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.JockeyInfoView" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.MemberInfoView" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.RaceScoreInfoView" Width="1.5" PointX="7.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.RaceView" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EquestrianCompetitionsMainModel.UserView" Width="1.5" PointX="11.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="EquestrianCompetitionsMainModel.FK__Horses__breed__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="EquestrianCompetitionsMainModel.FK__Horses__coach__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="EquestrianCompetitionsMainModel.FK__Competiti__judge__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="EquestrianCompetitionsMainModel.FK__Races__competiti__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="EquestrianCompetitionsMainModel.FK__Members__horse__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="EquestrianCompetitionsMainModel.FK__Members__jockey__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="EquestrianCompetitionsMainModel.FK__RaceMembe__membe__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="EquestrianCompetitionsMainModel.FK__RaceMember__race__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="EquestrianCompetitionsMainModel.FK__Users__role__49C3F6B7" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

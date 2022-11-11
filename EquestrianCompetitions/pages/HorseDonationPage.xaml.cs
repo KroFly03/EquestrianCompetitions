@@ -27,7 +27,7 @@ namespace EquestrianCompetitions.Pages
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var horses = EquestrianCompetitionsEntities.GetContext().HorseInfoView.ToList().Select(h => h.id);
+            var horses = EquestrianCompetitionsMainEntities1.GetContext().HorseInfoView.ToList().Select(h => h.id);
             foreach (var horse in horses)
             {
                 HorseList.Items.Add(horse);

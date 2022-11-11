@@ -17,5 +17,7 @@ namespace EquestrianCompetitions
         public string login { get; set; }
         public string password { get; set; }
         public int role { get; set; }
+    
+        public virtual Roles Roles { get; set; }
     }
 }

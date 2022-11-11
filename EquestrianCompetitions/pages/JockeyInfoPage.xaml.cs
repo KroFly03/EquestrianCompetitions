@@ -27,7 +27,7 @@ namespace EquestrianCompetitions.Pages
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var jockeys = EquestrianCompetitionsEntities.GetContext().JockeyInfoView.ToList();
+            var jockeys = EquestrianCompetitionsMainEntities1.GetContext().JockeyInfoView.ToList();
             JockeysInfo.ItemsSource = jockeys;
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)

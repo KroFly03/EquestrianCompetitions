@@ -4,7 +4,40 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище EquestrianCompetitionsModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище EquestrianCompetitionsMainModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Breeds">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Coaches">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fio" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Competitions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="prize" Type="money" Nullable="false" />
+          <Property Name="judge" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Horses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="age" Type="int" Nullable="false" />
+          <Property Name="breed" Type="int" Nullable="false" />
+          <Property Name="coach" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Jockeys">
           <Key>
             <PropertyRef Name="id" />
@@ -16,6 +49,16 @@
           <Property Name="weight" Type="decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="login" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Judges">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fio" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Members">
           <Key>
             <PropertyRef Name="id" />
@@ -25,7 +68,7 @@
           <Property Name="horse" Type="int" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "EquestrianCompetitions.dbo.RaceMembers" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+предупреждение 6002: В таблице или представлении "EquestrianCompetitionsMain.dbo.RaceMembers" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="RaceMembers">
           <Key>
             <PropertyRef Name="race" />
@@ -41,8 +84,23 @@
           <Property Name="uniform_color" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="disqualified" Type="bit" />
         </EntityType>
+        <EntityType Name="Races">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="distance" Type="int" Nullable="false" />
+          <Property Name="competition" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "EquestrianCompetitions.dbo.Users" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+предупреждение 6002: В таблице или представлении "EquestrianCompetitionsMain.dbo.Users" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="login" />
@@ -54,7 +112,7 @@
           <Property Name="role" Type="int" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "EquestrianCompetitions.dbo.CompetitionInfoView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+предупреждение 6002: В таблице или представлении "EquestrianCompetitionsMain.dbo.CompetitionInfoView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="CompetitionInfoView">
           <Key>
             <PropertyRef Name="id" />
@@ -68,7 +126,7 @@
           <Property Name="prize" Type="money" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "EquestrianCompetitions.dbo.HorseInfoView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+предупреждение 6002: В таблице или представлении "EquestrianCompetitionsMain.dbo.HorseInfoView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="HorseInfoView">
           <Key>
             <PropertyRef Name="id" />
@@ -85,7 +143,7 @@
           <Property Name="coach" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "EquestrianCompetitions.dbo.JockeyInfoView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+предупреждение 6002: В таблице или представлении "EquestrianCompetitionsMain.dbo.JockeyInfoView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="JockeyInfoView">
           <Key>
             <PropertyRef Name="fio" />
@@ -99,7 +157,7 @@
           <Property Name="weight" Type="decimal" Precision="5" Scale="2" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "EquestrianCompetitions.dbo.MemberInfoView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+предупреждение 6002: В таблице или представлении "EquestrianCompetitionsMain.dbo.MemberInfoView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="MemberInfoView">
           <Key>
             <PropertyRef Name="fio" />
@@ -116,7 +174,7 @@
           <Property Name="distance" Type="varchar" MaxLength="13" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "EquestrianCompetitions.dbo.RaceScoreInfoView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+предупреждение 6002: В таблице или представлении "EquestrianCompetitionsMain.dbo.RaceScoreInfoView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="RaceScoreInfoView">
           <Key>
             <PropertyRef Name="competition" />
@@ -139,7 +197,7 @@
           <Property Name="disqualified" Type="bit" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "EquestrianCompetitions.dbo.RaceView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+предупреждение 6002: В таблице или представлении "EquestrianCompetitionsMain.dbo.RaceView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="RaceView">
           <Key>
             <PropertyRef Name="race" />
@@ -148,7 +206,7 @@
           <Property Name="amount" Type="int" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "EquestrianCompetitions.dbo.UserView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+предупреждение 6002: В таблице или представлении "EquestrianCompetitionsMain.dbo.UserView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="UserView">
           <Key>
             <PropertyRef Name="login" />
@@ -169,10 +227,61 @@
           <Property Name="rank" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="weight" Type="decimal" Precision="5" Scale="2" Nullable="false" />
         </EntityType>
+        <Association Name="FK__Competiti__judge__403A8C7D">
+          <End Role="Judges" Type="Self.Judges" Multiplicity="1" />
+          <End Role="Competitions" Type="Self.Competitions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Judges">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Competitions">
+              <PropertyRef Name="judge" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horses__breed__412EB0B6">
+          <End Role="Breeds" Type="Self.Breeds" Multiplicity="1" />
+          <End Role="Horses" Type="Self.Horses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Breeds">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Horses">
+              <PropertyRef Name="breed" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horses__coach__4222D4EF">
+          <End Role="Coaches" Type="Self.Coaches" Multiplicity="1" />
+          <End Role="Horses" Type="Self.Horses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coaches">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Horses">
+              <PropertyRef Name="coach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <!--Ошибки, обнаруженные при создании:
-предупреждение 6035: В связи "FK__Jockeys__login__3B75D760" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
-        <Association Name="FK__Jockeys__login__3B75D760" />-->
-        <Association Name="FK__Members__jockey__3E52440B">
+предупреждение 6035: В связи "FK__Jockeys__login__4316F928" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK__Jockeys__login__4316F928" />-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6035: В связи "FK__Judges__login__440B1D61" имеются столбцы, которые не являются частью ключа таблицы на первичной стороне связи. Связь исключена.
+        <Association Name="FK__Judges__login__440B1D61" />-->
+        <Association Name="FK__Members__horse__44FF419A">
+          <End Role="Horses" Type="Self.Horses" Multiplicity="1" />
+          <End Role="Members" Type="Self.Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Members">
+              <PropertyRef Name="horse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Members__jockey__45F365D3">
           <End Role="Jockeys" Type="Self.Jockeys" Multiplicity="1" />
           <End Role="Members" Type="Self.Members" Multiplicity="*" />
           <ReferentialConstraint>
@@ -184,7 +293,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RaceMembe__membe__3F466844">
+        <Association Name="FK__RaceMembe__membe__46E78A0C">
           <End Role="Members" Type="Self.Members" Multiplicity="1" />
           <End Role="RaceMembers" Type="Self.RaceMembers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -196,13 +305,59 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__RaceMember__race__47DBAE45">
+          <End Role="Races" Type="Self.Races" Multiplicity="1" />
+          <End Role="RaceMembers" Type="Self.RaceMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Races">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RaceMembers">
+              <PropertyRef Name="race" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Races__competiti__48CFD27E">
+          <End Role="Competitions" Type="Self.Competitions" Multiplicity="1" />
+          <End Role="Races" Type="Self.Races" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competitions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Races">
+              <PropertyRef Name="competition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__role__49C3F6B7">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="Authorizate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="login" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
         </Function>
-        <EntityContainer Name="Хранилище EquestrianCompetitionsModelContainer">
+        <Function Name="CountHorsePerformance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="horse" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="Хранилище EquestrianCompetitionsMainModelContainer">
+          <EntitySet Name="Breeds" EntityType="Self.Breeds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Coaches" EntityType="Self.Coaches" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Competitions" EntityType="Self.Competitions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Horses" EntityType="Self.Horses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Jockeys" EntityType="Self.Jockeys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Judges" EntityType="Self.Judges" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Races" EntityType="Self.Races" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RaceMembers" EntityType="Self.RaceMembers" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [RaceMembers].[race] AS [race], 
@@ -287,19 +442,88 @@
     [UserView].[weight] AS [weight]
     FROM [dbo].[UserView] AS [UserView]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Members__jockey__3E52440B" Association="Self.FK__Members__jockey__3E52440B">
+          <AssociationSet Name="FK__Competiti__judge__403A8C7D" Association="Self.FK__Competiti__judge__403A8C7D">
+            <End Role="Judges" EntitySet="Judges" />
+            <End Role="Competitions" EntitySet="Competitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horses__breed__412EB0B6" Association="Self.FK__Horses__breed__412EB0B6">
+            <End Role="Breeds" EntitySet="Breeds" />
+            <End Role="Horses" EntitySet="Horses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horses__coach__4222D4EF" Association="Self.FK__Horses__coach__4222D4EF">
+            <End Role="Coaches" EntitySet="Coaches" />
+            <End Role="Horses" EntitySet="Horses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Members__horse__44FF419A" Association="Self.FK__Members__horse__44FF419A">
+            <End Role="Horses" EntitySet="Horses" />
+            <End Role="Members" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Members__jockey__45F365D3" Association="Self.FK__Members__jockey__45F365D3">
             <End Role="Jockeys" EntitySet="Jockeys" />
             <End Role="Members" EntitySet="Members" />
           </AssociationSet>
-          <AssociationSet Name="FK__RaceMembe__membe__3F466844" Association="Self.FK__RaceMembe__membe__3F466844">
+          <AssociationSet Name="FK__RaceMembe__membe__46E78A0C" Association="Self.FK__RaceMembe__membe__46E78A0C">
             <End Role="Members" EntitySet="Members" />
             <End Role="RaceMembers" EntitySet="RaceMembers" />
           </AssociationSet>
+          <AssociationSet Name="FK__RaceMember__race__47DBAE45" Association="Self.FK__RaceMember__race__47DBAE45">
+            <End Role="Races" EntitySet="Races" />
+            <End Role="RaceMembers" EntitySet="RaceMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Races__competiti__48CFD27E" Association="Self.FK__Races__competiti__48CFD27E">
+            <End Role="Competitions" EntitySet="Competitions" />
+            <End Role="Races" EntitySet="Races" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__role__49C3F6B7" Association="Self.FK__Users__role__49C3F6B7">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="EquestrianCompetitionsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="EquestrianCompetitionsMainModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Breeds">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Horses" Relationship="Self.FK__Horses__breed__412EB0B6" FromRole="Breeds" ToRole="Horses" />
+        </EntityType>
+        <EntityType Name="Coaches">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Horses" Relationship="Self.FK__Horses__coach__4222D4EF" FromRole="Coaches" ToRole="Horses" />
+        </EntityType>
+        <EntityType Name="Competitions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="prize" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="judge" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Judges" Relationship="Self.FK__Competiti__judge__403A8C7D" FromRole="Competitions" ToRole="Judges" />
+          <NavigationProperty Name="Races" Relationship="Self.FK__Races__competiti__48CFD27E" FromRole="Competitions" ToRole="Races" />
+        </EntityType>
+        <EntityType Name="Horses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="age" Type="Int32" Nullable="false" />
+          <Property Name="breed" Type="Int32" Nullable="false" />
+          <Property Name="coach" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Breeds" Relationship="Self.FK__Horses__breed__412EB0B6" FromRole="Horses" ToRole="Breeds" />
+          <NavigationProperty Name="Coaches" Relationship="Self.FK__Horses__coach__4222D4EF" FromRole="Horses" ToRole="Coaches" />
+          <NavigationProperty Name="Members" Relationship="Self.FK__Members__horse__44FF419A" FromRole="Horses" ToRole="Members" />
+        </EntityType>
         <EntityType Name="Jockeys">
           <Key>
             <PropertyRef Name="id" />
@@ -310,7 +534,18 @@
           <Property Name="rank" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="weight" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
           <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Members" Relationship="Self.FK__Members__jockey__3E52440B" FromRole="Jockeys" ToRole="Members" />
+          <NavigationProperty Name="Members" Relationship="Self.FK__Members__jockey__45F365D3" FromRole="Jockeys" ToRole="Members" />
+        </EntityType>
+        <EntityType Name="Judges">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Competitions" Relationship="Self.FK__Competiti__judge__403A8C7D" FromRole="Judges" ToRole="Competitions" />
         </EntityType>
         <EntityType Name="Members">
           <Key>
@@ -319,8 +554,27 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="jockey" Type="Int32" Nullable="false" />
           <Property Name="horse" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Jockeys" Relationship="Self.FK__Members__jockey__3E52440B" FromRole="Members" ToRole="Jockeys" />
-          <NavigationProperty Name="RaceMembers" Relationship="Self.FK__RaceMembe__membe__3F466844" FromRole="Members" ToRole="RaceMembers" />
+          <NavigationProperty Name="Horses" Relationship="Self.FK__Members__horse__44FF419A" FromRole="Members" ToRole="Horses" />
+          <NavigationProperty Name="Jockeys" Relationship="Self.FK__Members__jockey__45F365D3" FromRole="Members" ToRole="Jockeys" />
+          <NavigationProperty Name="RaceMembers" Relationship="Self.FK__RaceMembe__membe__46E78A0C" FromRole="Members" ToRole="RaceMembers" />
+        </EntityType>
+        <EntityType Name="Races">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="distance" Type="Int32" Nullable="false" />
+          <Property Name="competition" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Competitions" Relationship="Self.FK__Races__competiti__48CFD27E" FromRole="Races" ToRole="Competitions" />
+          <NavigationProperty Name="RaceMembers" Relationship="Self.FK__RaceMember__race__47DBAE45" FromRole="Races" ToRole="RaceMembers" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__role__49C3F6B7" FromRole="Roles" ToRole="Users" />
         </EntityType>
         <EntityType Name="RaceMembers">
           <Key>
@@ -336,7 +590,19 @@
           <Property Name="running_track" Type="Int32" Nullable="false" />
           <Property Name="uniform_color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="disqualified" Type="Boolean" />
-          <NavigationProperty Name="Members" Relationship="Self.FK__RaceMembe__membe__3F466844" FromRole="RaceMembers" ToRole="Members" />
+          <NavigationProperty Name="Members" Relationship="Self.FK__RaceMembe__membe__46E78A0C" FromRole="RaceMembers" ToRole="Members" />
+          <NavigationProperty Name="Races" Relationship="Self.FK__RaceMember__race__47DBAE45" FromRole="RaceMembers" ToRole="Races" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="login" />
+            <PropertyRef Name="password" />
+            <PropertyRef Name="role" />
+          </Key>
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK__Users__role__49C3F6B7" FromRole="Users" ToRole="Roles" />
         </EntityType>
         <EntityType Name="CompetitionInfoView">
           <Key>
@@ -440,7 +706,67 @@
           <Property Name="rank" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="weight" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Members__jockey__3E52440B">
+        <Association Name="FK__Horses__breed__412EB0B6">
+          <End Role="Breeds" Type="Self.Breeds" Multiplicity="1" />
+          <End Role="Horses" Type="Self.Horses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Breeds">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Horses">
+              <PropertyRef Name="breed" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Horses__coach__4222D4EF">
+          <End Role="Coaches" Type="Self.Coaches" Multiplicity="1" />
+          <End Role="Horses" Type="Self.Horses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coaches">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Horses">
+              <PropertyRef Name="coach" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Competiti__judge__403A8C7D">
+          <End Role="Judges" Type="Self.Judges" Multiplicity="1" />
+          <End Role="Competitions" Type="Self.Competitions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Judges">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Competitions">
+              <PropertyRef Name="judge" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Races__competiti__48CFD27E">
+          <End Role="Competitions" Type="Self.Competitions" Multiplicity="1" />
+          <End Role="Races" Type="Self.Races" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competitions">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Races">
+              <PropertyRef Name="competition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Members__horse__44FF419A">
+          <End Role="Horses" Type="Self.Horses" Multiplicity="1" />
+          <End Role="Members" Type="Self.Members" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Members">
+              <PropertyRef Name="horse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Members__jockey__45F365D3">
           <End Role="Jockeys" Type="Self.Jockeys" Multiplicity="1" />
           <End Role="Members" Type="Self.Members" Multiplicity="*" />
           <ReferentialConstraint>
@@ -452,7 +778,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RaceMembe__membe__3F466844">
+        <Association Name="FK__RaceMembe__membe__46E78A0C">
           <End Role="Members" Type="Self.Members" Multiplicity="1" />
           <End Role="RaceMembers" Type="Self.RaceMembers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -464,10 +790,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EquestrianCompetitionsEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK__RaceMember__race__47DBAE45">
+          <End Role="Races" Type="Self.Races" Multiplicity="1" />
+          <End Role="RaceMembers" Type="Self.RaceMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Races">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RaceMembers">
+              <PropertyRef Name="race" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__role__49C3F6B7">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EquestrianCompetitionsMainEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Breeds" EntityType="Self.Breeds" />
+          <EntitySet Name="Coaches" EntityType="Self.Coaches" />
+          <EntitySet Name="Competitions" EntityType="Self.Competitions" />
+          <EntitySet Name="Horses" EntityType="Self.Horses" />
           <EntitySet Name="Jockeys" EntityType="Self.Jockeys" />
+          <EntitySet Name="Judges" EntityType="Self.Judges" />
           <EntitySet Name="Members" EntityType="Self.Members" />
+          <EntitySet Name="Races" EntityType="Self.Races" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
           <EntitySet Name="RaceMembers" EntityType="Self.RaceMembers" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
           <EntitySet Name="CompetitionInfoView" EntityType="Self.CompetitionInfoView" />
           <EntitySet Name="HorseInfoView" EntityType="Self.HorseInfoView" />
           <EntitySet Name="JockeyInfoView" EntityType="Self.JockeyInfoView" />
@@ -475,43 +833,97 @@
           <EntitySet Name="RaceScoreInfoView" EntityType="Self.RaceScoreInfoView" />
           <EntitySet Name="RaceView" EntityType="Self.RaceView" />
           <EntitySet Name="UserView" EntityType="Self.UserView" />
-          <AssociationSet Name="FK__Members__jockey__3E52440B" Association="Self.FK__Members__jockey__3E52440B">
+          <AssociationSet Name="FK__Horses__breed__412EB0B6" Association="Self.FK__Horses__breed__412EB0B6">
+            <End Role="Breeds" EntitySet="Breeds" />
+            <End Role="Horses" EntitySet="Horses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Horses__coach__4222D4EF" Association="Self.FK__Horses__coach__4222D4EF">
+            <End Role="Coaches" EntitySet="Coaches" />
+            <End Role="Horses" EntitySet="Horses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Competiti__judge__403A8C7D" Association="Self.FK__Competiti__judge__403A8C7D">
+            <End Role="Judges" EntitySet="Judges" />
+            <End Role="Competitions" EntitySet="Competitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Races__competiti__48CFD27E" Association="Self.FK__Races__competiti__48CFD27E">
+            <End Role="Competitions" EntitySet="Competitions" />
+            <End Role="Races" EntitySet="Races" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Members__horse__44FF419A" Association="Self.FK__Members__horse__44FF419A">
+            <End Role="Horses" EntitySet="Horses" />
+            <End Role="Members" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Members__jockey__45F365D3" Association="Self.FK__Members__jockey__45F365D3">
             <End Role="Jockeys" EntitySet="Jockeys" />
             <End Role="Members" EntitySet="Members" />
           </AssociationSet>
-          <AssociationSet Name="FK__RaceMembe__membe__3F466844" Association="Self.FK__RaceMembe__membe__3F466844">
+          <AssociationSet Name="FK__RaceMembe__membe__46E78A0C" Association="Self.FK__RaceMembe__membe__46E78A0C">
             <End Role="Members" EntitySet="Members" />
             <End Role="RaceMembers" EntitySet="RaceMembers" />
           </AssociationSet>
-          <FunctionImport Name="Authorizate" ReturnType="Collection(EquestrianCompetitionsModel.Authorizate_Result)">
+          <AssociationSet Name="FK__RaceMember__race__47DBAE45" Association="Self.FK__RaceMember__race__47DBAE45">
+            <End Role="Races" EntitySet="Races" />
+            <End Role="RaceMembers" EntitySet="RaceMembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__role__49C3F6B7" Association="Self.FK__Users__role__49C3F6B7">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <FunctionImport Name="Authorizate" ReturnType="Collection(EquestrianCompetitionsMainModel.Authorizate_Result)">
             <Parameter Name="login" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="Users" EntityType="EquestrianCompetitionsModel.Users" />
         </EntityContainer>
         <ComplexType Name="Authorizate_Result">
           <Property Type="String" Name="login" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="password" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="role" Nullable="false" />
         </ComplexType>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="login" />
-            <PropertyRef Name="password" />
-            <PropertyRef Name="role" />
-          </Key>
-          <Property Name="login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="role" Type="Int32" Nullable="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище EquestrianCompetitionsModelContainer" CdmEntityContainer="EquestrianCompetitionsEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище EquestrianCompetitionsMainModelContainer" CdmEntityContainer="EquestrianCompetitionsMainEntities1">
+          <EntitySetMapping Name="Breeds">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.Breeds">
+              <MappingFragment StoreEntitySet="Breeds">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Coaches">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.Coaches">
+              <MappingFragment StoreEntitySet="Coaches">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fio" ColumnName="fio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Competitions">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.Competitions">
+              <MappingFragment StoreEntitySet="Competitions">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="prize" ColumnName="prize" />
+                <ScalarProperty Name="judge" ColumnName="judge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Horses">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.Horses">
+              <MappingFragment StoreEntitySet="Horses">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="breed" ColumnName="breed" />
+                <ScalarProperty Name="coach" ColumnName="coach" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Jockeys">
-            <EntityTypeMapping TypeName="EquestrianCompetitionsModel.Jockeys">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.Jockeys">
               <MappingFragment StoreEntitySet="Jockeys">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="fio" ColumnName="fio" />
@@ -522,8 +934,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Judges">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.Judges">
+              <MappingFragment StoreEntitySet="Judges">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fio" ColumnName="fio" />
+                <ScalarProperty Name="category" ColumnName="category" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="login" ColumnName="login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Members">
-            <EntityTypeMapping TypeName="EquestrianCompetitionsModel.Members">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.Members">
               <MappingFragment StoreEntitySet="Members">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="jockey" ColumnName="jockey" />
@@ -531,8 +954,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Races">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.Races">
+              <MappingFragment StoreEntitySet="Races">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="competition" ColumnName="competition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="RaceMembers">
-            <EntityTypeMapping TypeName="EquestrianCompetitionsModel.RaceMembers">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.RaceMembers">
               <MappingFragment StoreEntitySet="RaceMembers">
                 <ScalarProperty Name="race" ColumnName="race" />
                 <ScalarProperty Name="member" ColumnName="member" />
@@ -543,8 +983,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="CompetitionInfoView">
-            <EntityTypeMapping TypeName="EquestrianCompetitionsModel.CompetitionInfoView">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.CompetitionInfoView">
               <MappingFragment StoreEntitySet="CompetitionInfoView">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="date" ColumnName="date" />
@@ -554,7 +1003,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HorseInfoView">
-            <EntityTypeMapping TypeName="EquestrianCompetitionsModel.HorseInfoView">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.HorseInfoView">
               <MappingFragment StoreEntitySet="HorseInfoView">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="horse" ColumnName="horse" />
@@ -566,7 +1015,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="JockeyInfoView">
-            <EntityTypeMapping TypeName="EquestrianCompetitionsModel.JockeyInfoView">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.JockeyInfoView">
               <MappingFragment StoreEntitySet="JockeyInfoView">
                 <ScalarProperty Name="fio" ColumnName="fio" />
                 <ScalarProperty Name="birthday" ColumnName="birthday" />
@@ -576,7 +1025,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MemberInfoView">
-            <EntityTypeMapping TypeName="EquestrianCompetitionsModel.MemberInfoView">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.MemberInfoView">
               <MappingFragment StoreEntitySet="MemberInfoView">
                 <ScalarProperty Name="fio" ColumnName="fio" />
                 <ScalarProperty Name="rank" ColumnName="rank" />
@@ -588,7 +1037,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RaceScoreInfoView">
-            <EntityTypeMapping TypeName="EquestrianCompetitionsModel.RaceScoreInfoView">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.RaceScoreInfoView">
               <MappingFragment StoreEntitySet="RaceScoreInfoView">
                 <ScalarProperty Name="competition" ColumnName="competition" />
                 <ScalarProperty Name="race" ColumnName="race" />
@@ -603,7 +1052,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RaceView">
-            <EntityTypeMapping TypeName="EquestrianCompetitionsModel.RaceView">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.RaceView">
               <MappingFragment StoreEntitySet="RaceView">
                 <ScalarProperty Name="race" ColumnName="race" />
                 <ScalarProperty Name="amount" ColumnName="amount" />
@@ -611,7 +1060,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserView">
-            <EntityTypeMapping TypeName="EquestrianCompetitionsModel.UserView">
+            <EntityTypeMapping TypeName="EquestrianCompetitionsMainModel.UserView">
               <MappingFragment StoreEntitySet="UserView">
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="password" ColumnName="password" />
@@ -624,24 +1073,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="Authorizate" FunctionName="Хранилище EquestrianCompetitionsModel.Authorizate">
+          <FunctionImportMapping FunctionImportName="Authorizate" FunctionName="Хранилище EquestrianCompetitionsMainModel.Authorizate">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="EquestrianCompetitionsModel.Authorizate_Result">
+              <ComplexTypeMapping TypeName="EquestrianCompetitionsMainModel.Authorizate_Result">
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="role" ColumnName="role" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="EquestrianCompetitionsModel.Users">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="role" ColumnName="role" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="login" ColumnName="login" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

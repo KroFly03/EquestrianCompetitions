@@ -59,7 +59,7 @@
             </StackPanel.Resources>
             <TextBlock Name="LoginInput" Text="{Binding login}"/>
             <TextBox Name="FioInput" Text="{Binding fio}"/>
-            <DatePicker Name="Birthday" Text="{Binding birthday}"/>
+            <DatePicker Name="Birthday" SelectedDate="{Binding birthday}"/>
             <TextBox Name="Rank" Text="{Binding rank}"/>
             <TextBox Name="Weight" Text="{Binding weight}"/>
             <Button Content="Сохранить" Name="SaveButton" Click="SaveButton_Click"/>

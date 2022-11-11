@@ -27,7 +27,7 @@ namespace EquestrianCompetitions.Pages
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var horses = EquestrianCompetitionsEntities.GetContext().HorseInfoView.ToList();
+            var horses = EquestrianCompetitionsMainEntities1.GetContext().HorseInfoView.ToList();
             HorsesInfo.ItemsSource = horses;
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)

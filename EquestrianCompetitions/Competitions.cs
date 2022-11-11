@@ -12,16 +12,21 @@ namespace EquestrianCompetitions
     using System;
     using System.Collections.Generic;
     
-    public partial class RaceMembers
+    public partial class Competitions
     {
-        public int race { get; set; }
-        public int member { get; set; }
-        public System.TimeSpan score { get; set; }
-        public int running_track { get; set; }
-        public string uniform_color { get; set; }
-        public Nullable<bool> disqualified { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Competitions()
+        {
+            this.Races = new HashSet<Races>();
+        }
     
-        public virtual Members Members { get; set; }
-        public virtual Races Races { get; set; }
+        public int id { get; set; }
+        public System.DateTime date { get; set; }
+        public decimal prize { get; set; }
+        public int judge { get; set; }
+    
+        public virtual Judges Judges { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Races> Races { get; set; }
     }
 }

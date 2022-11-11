@@ -29,7 +29,7 @@ namespace EquestrianCompetitions.Pages
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Race.IsEnabled = false;
-            members = EquestrianCompetitionsEntities.GetContext().MemberInfoView.ToList();
+            members = EquestrianCompetitionsMainEntities1.GetContext().MemberInfoView.ToList();
             RaceMemberInfo.ItemsSource = members;
             Competition.ItemsSource = members.Select(m => m.date).OrderBy(m => m).Distinct();
             Race.ItemsSource = members.Select(m => m.distance).OrderBy(m => m).Distinct();

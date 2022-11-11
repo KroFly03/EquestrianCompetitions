@@ -22,13 +22,13 @@ namespace EquestrianCompetitions.Pages
     public partial class JockeyHorseEditPage : Page
     {
         Members currentMember = new Members();
-        List<HorseInfoView> horses = EquestrianCompetitionsEntities.GetContext().HorseInfoView.ToList();
+        List<HorseInfoView> horses = EquestrianCompetitionsMainEntities1.GetContext().HorseInfoView.ToList();
         public JockeyHorseEditPage(string login)
         {
             InitializeComponent();
             Name.ItemsSource = horses.Select(h => h.horse);
-            var members = EquestrianCompetitionsEntities.GetContext().Members.ToList();
-            int jockey = EquestrianCompetitionsEntities.GetContext().Jockeys.ToList().Where(j => j.login == login).Select(j => j.id).FirstOrDefault();
+            var members = EquestrianCompetitionsMainEntities1.GetContext().Members.ToList();
+            int jockey = EquestrianCompetitionsMainEntities1.GetContext().Jockeys.ToList().Where(j => j.login == login).Select(j => j.id).FirstOrDefault();
             var member = members.Where(m => m.jockey == jockey);
             if (member != null)
                 currentMember = member.First();

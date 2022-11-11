@@ -30,8 +30,8 @@ namespace EquestrianCompetitions.Pages
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            score = EquestrianCompetitionsEntities.GetContext().RaceScoreInfoView.ToList();
-            ScoreInfo.ItemsSource = score.Where(s => s.race.Equals(race));
+            score = EquestrianCompetitionsMainEntities1.GetContext().RaceScoreInfoView.ToList();
+            ScoreInfo.ItemsSource = score.Where(s => s.race.Equals(race)).OrderBy(s => s.score);
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {

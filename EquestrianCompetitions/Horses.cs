@@ -12,21 +12,23 @@ namespace EquestrianCompetitions
     using System;
     using System.Collections.Generic;
     
-    public partial class Members
+    public partial class Horses
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Members()
+        public Horses()
         {
-            this.RaceMembers = new HashSet<RaceMembers>();
+            this.Members = new HashSet<Members>();
         }
     
         public int id { get; set; }
-        public int jockey { get; set; }
-        public int horse { get; set; }
+        public string name { get; set; }
+        public int age { get; set; }
+        public int breed { get; set; }
+        public int coach { get; set; }
     
-        public virtual Horses Horses { get; set; }
-        public virtual Jockeys Jockeys { get; set; }
+        public virtual Breeds Breeds { get; set; }
+        public virtual Coaches Coaches { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RaceMembers> RaceMembers { get; set; }
+        public virtual ICollection<Members> Members { get; set; }
     }
 }
