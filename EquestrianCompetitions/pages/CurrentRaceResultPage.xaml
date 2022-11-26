@@ -19,7 +19,7 @@
                 <DataGrid.ItemContainerStyle>
                     <Style TargetType="DataGridRow">
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding disqualified}" Value="True">
+                            <DataTrigger Binding="{Binding status}" Value="True">
                                 <Setter Property="Background" Value="Red"/>
                             </DataTrigger>
                         </Style.Triggers>

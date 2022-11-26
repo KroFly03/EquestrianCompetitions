@@ -1,4 +1,5 @@
 ﻿using EquestrianCompetitions.Classes;
+using EquestrianCompetitions.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace EquestrianCompetitions.Pages
         public JockeyEditPage(string login)
         {
             InitializeComponent();
-            var jockeys = EquestrianCompetitionsMainEntities1.GetContext().Jockeys.ToList();
+            var jockeys = EquestrianCompetitionsEntities.GetContext().Jockeys.ToList();
             var jockey = jockeys.Where(j => j.login == login).ToList();
             if (jockey != null)
                 currentJockey = jockey.First();
@@ -45,11 +46,11 @@ namespace EquestrianCompetitions.Pages
         {
             if (currentJockey.id == 0)
             {
-                EquestrianCompetitionsMainEntities1.GetContext().Jockeys.Add(currentJockey);
+                EquestrianCompetitionsEntities.GetContext().Jockeys.Add(currentJockey);
             }
             try
             {
-                EquestrianCompetitionsMainEntities1.GetContext().SaveChanges();
+                EquestrianCompetitionsEntities.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена");
                 Manager.MainFrame.GoBack();
             }

@@ -1,4 +1,5 @@
 ﻿using EquestrianCompetitions.Classes;
+using EquestrianCompetitions.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace EquestrianCompetitions.Pages
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Race.IsEnabled = false;
-            members = EquestrianCompetitionsMainEntities1.GetContext().MemberInfoView.ToList();
+            members = EquestrianCompetitionsEntities.GetContext().MemberInfoView.ToList();
             RaceMemberInfo.ItemsSource = members;
             Competition.ItemsSource = members.Select(m => m.date).OrderBy(m => m).Distinct();
             Race.ItemsSource = members.Select(m => m.distance).OrderBy(m => m).Distinct();

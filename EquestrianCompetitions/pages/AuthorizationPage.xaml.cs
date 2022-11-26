@@ -1,4 +1,5 @@
 ﻿using EquestrianCompetitions.Classes;
+using EquestrianCompetitions.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace EquestrianCompetitions.Pages
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            users = EquestrianCompetitionsMainEntities1.GetContext().UserView.ToList();
+            users = EquestrianCompetitionsEntities.GetContext().UserView.ToList();
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
@@ -37,19 +38,16 @@ namespace EquestrianCompetitions.Pages
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            var user = EquestrianCompetitionsMainEntities1.GetContext().Authorizate(LoginInput.Text, PasswordInput.Text).SingleOrDefault();
-            if (user != null)
+            var user = EquestrianCompetitionsEntities.GetContext().Users.ToList().Where(u => u.login == LoginInput.Text && u.password == PasswordInput.Text).SingleOrDefault();
+            MessageBox.Show("Авторизация прошла успаешно");
+            switch (user.role)
             {
-                MessageBox.Show("Авторизация прошла успешно");
-                switch (user.role)
-                {
-                    case 1:
-                        Manager.MainFrame.Navigate(new JockeyPage(user.login));
-                        break;
-                    case 2:
-                        Manager.MainFrame.Navigate(new JudgePage());
-                        break;
-                }
+                case 1:
+                    Manager.MainFrame.Navigate(new JockeyPage(user.login));
+                    break;
+                case 2:
+                    Manager.MainFrame.Navigate(new JudgePage());
+                    break;
             }
         }
         private void FanMenuButton_Click(object sender, RoutedEventArgs e)

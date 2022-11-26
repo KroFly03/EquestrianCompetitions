@@ -1,4 +1,5 @@
 ﻿using EquestrianCompetitions.Classes;
+using EquestrianCompetitions.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace EquestrianCompetitions.Pages
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var horses = EquestrianCompetitionsMainEntities1.GetContext().HorseInfoView.ToList().Select(h => h.id);
+            var horses = EquestrianCompetitionsEntities.GetContext().HorseInfoView.ToList().Select(h => h.id);
             foreach (var horse in horses)
             {
                 HorseList.Items.Add(horse);

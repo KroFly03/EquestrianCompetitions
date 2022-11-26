@@ -1,4 +1,5 @@
 ﻿using EquestrianCompetitions.Classes;
+using EquestrianCompetitions.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,8 +31,8 @@ namespace EquestrianCompetitions.Pages
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            score = EquestrianCompetitionsMainEntities1.GetContext().RaceScoreInfoView.ToList();
-            ScoreInfo.ItemsSource = score.Where(s => s.race.Equals(race)).OrderBy(s => s.score);
+            score = EquestrianCompetitionsEntities.GetContext().RaceScoreInfoView.ToList();
+            ScoreInfo.ItemsSource = score.Where(s => s.race.Equals(race));
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
