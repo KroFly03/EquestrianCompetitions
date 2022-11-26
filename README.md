@@ -1,1 +1,1 @@
-# EquestrianCompetitions
+# Конные состязания
