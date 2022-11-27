@@ -40,6 +40,6 @@
             <Button x:Name="JockeyEditButton" Content="Ввод и редактирование&#xa; информации о жокее" Click="JockeyEditButton_Click"/>
         </StackPanel>
         <Button x:Name="BackButton" Content="Назад" Click="BackButton_Click" Grid.Column="0" Grid.Row="1"/>
-        <Image Source="/Resources/logo.png" Grid.Column="2" Grid.Row="1"/>
+        <Image Source="/Resources/jockey.jpg" Grid.Column="2" Grid.Row="1"/>
     </Grid>
 </Page>

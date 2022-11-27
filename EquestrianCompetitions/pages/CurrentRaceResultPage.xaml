@@ -26,12 +26,20 @@
                     </Style>
                 </DataGrid.ItemContainerStyle>
                 <DataGrid.Columns>
+                    <DataGridTextColumn Header="Номер гонки" Binding="{Binding race}" Width="*"/>
+                    <DataGridTextColumn Header="Номер участника" Binding="{Binding member}" Width="*"/>
                     <DataGridTextColumn Header="Дата" Binding="{Binding date, StringFormat={}{0:dd\.}{0:MM\.}{0:yyyy}}" Width="*"/>
                     <DataGridTextColumn Header="Дистанция" Binding="{Binding distance}" Width="*"/>
                     <DataGridTextColumn Header="Время" Binding="{Binding score}" Width="*"/>
                     <DataGridTextColumn Header="Дорожка" Binding="{Binding running_track}" Width="*"/>
                     <DataGridTextColumn Header="Цвет" Binding="{Binding uniform_color}" Width="*"/>
-                    <DataGridTemplateColumn Width="auto"/>
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Изменить с/д" Name="DisqualifiedButton" Click="DisqualifiedButton_Click"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
             <Button x:Name="BackButton" Content="Назад" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BackButton_Click"/>

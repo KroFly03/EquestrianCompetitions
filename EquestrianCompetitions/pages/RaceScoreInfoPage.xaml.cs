@@ -1,5 +1,4 @@
 ﻿using EquestrianCompetitions.Classes;
-using EquestrianCompetitions.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +22,11 @@ namespace EquestrianCompetitions.Pages
     public partial class RaceScoreInfoPage : Page
     {
         List<RaceView> races;
-        public RaceScoreInfoPage()
+        int role;
+        public RaceScoreInfoPage(int role)
         {
             InitializeComponent();
+            this.role = role;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -39,7 +40,7 @@ namespace EquestrianCompetitions.Pages
         private void InfoButton_Click(object sender, RoutedEventArgs e)
         {
             RaceView currentRaces = (sender as Button).DataContext as RaceView;
-            Manager.MainFrame.Navigate(new CurrentRaceResultPage(currentRaces.race));
+            Manager.MainFrame.Navigate(new CurrentRaceResultPage(currentRaces.race, role));
         }
     }
 }

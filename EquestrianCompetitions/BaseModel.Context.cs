@@ -12,21 +12,18 @@ namespace EquestrianCompetitions
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.Core.Objects;
-    using System.Linq;
     
-    public partial class EquestrianCompetitionsMainEntities1 : DbContext
+    public partial class EquestrianCompetitionsEntities : DbContext
     {
-        private static EquestrianCompetitionsMainEntities1 context;
-        public EquestrianCompetitionsMainEntities1()
-            : base("name=EquestrianCompetitionsMainEntities1")
+        private static EquestrianCompetitionsEntities context;
+        public EquestrianCompetitionsEntities()
+            : base("name=EquestrianCompetitionsEntities")
         {
         }
-
-        public static EquestrianCompetitionsMainEntities1 GetContext()
+        public static EquestrianCompetitionsEntities GetContext()
         {
             if (context == null)
-                context = new EquestrianCompetitionsMainEntities1();
+                context = new EquestrianCompetitionsEntities();
 
             return context;
         }
@@ -39,12 +36,14 @@ namespace EquestrianCompetitions
         public virtual DbSet<Breeds> Breeds { get; set; }
         public virtual DbSet<Coaches> Coaches { get; set; }
         public virtual DbSet<Competitions> Competitions { get; set; }
+        public virtual DbSet<Disqualifications> Disqualifications { get; set; }
         public virtual DbSet<Horses> Horses { get; set; }
         public virtual DbSet<Jockeys> Jockeys { get; set; }
         public virtual DbSet<Judges> Judges { get; set; }
         public virtual DbSet<Members> Members { get; set; }
         public virtual DbSet<Races> Races { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<RaceMembers> RaceMembers { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<CompetitionInfoView> CompetitionInfoView { get; set; }
@@ -54,18 +53,5 @@ namespace EquestrianCompetitions
         public virtual DbSet<RaceScoreInfoView> RaceScoreInfoView { get; set; }
         public virtual DbSet<RaceView> RaceView { get; set; }
         public virtual DbSet<UserView> UserView { get; set; }
-    
-        public virtual ObjectResult<Authorizate_Result> Authorizate(string login, string password)
-        {
-            var loginParameter = login != null ?
-                new ObjectParameter("login", login) :
-                new ObjectParameter("login", typeof(string));
-    
-            var passwordParameter = password != null ?
-                new ObjectParameter("password", password) :
-                new ObjectParameter("password", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Authorizate_Result>("Authorizate", loginParameter, passwordParameter);
-        }
     }
 }

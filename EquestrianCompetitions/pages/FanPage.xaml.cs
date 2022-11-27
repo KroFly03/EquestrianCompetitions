@@ -53,7 +53,7 @@ namespace EquestrianCompetitions.Pages
 
         private void RaceScoreInfoButton_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new RaceScoreInfoPage());
+            Manager.MainFrame.Navigate(new RaceScoreInfoPage(0));
         }
 
         private void DonateButton_Click(object sender, RoutedEventArgs e)

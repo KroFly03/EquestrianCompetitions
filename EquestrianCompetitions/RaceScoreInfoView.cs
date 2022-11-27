@@ -22,6 +22,7 @@ namespace EquestrianCompetitions
         public System.TimeSpan score { get; set; }
         public int running_track { get; set; }
         public string uniform_color { get; set; }
-        public Nullable<bool> disqualified { get; set; }
+        public bool status { get; set; }
+        public Nullable<int> disqualification { get; set; }
     }
 }

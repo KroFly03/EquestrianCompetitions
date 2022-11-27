@@ -1,5 +1,4 @@
 ﻿using EquestrianCompetitions.Classes;
-using EquestrianCompetitions.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
