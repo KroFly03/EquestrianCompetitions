@@ -7,7 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CurrentRaceResultPage"
-      Loaded="Window_Loaded">
+      Loaded="Window_Loaded"
+      Background="{StaticResource Background}">
 
     <Grid>
         <Grid>
@@ -15,7 +16,7 @@
                 <RowDefinition Height="7*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <DataGrid x:Name="ScoreInfo" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid x:Name="ScoreInfo"  FontFamily="Comic Sans MS" AutoGenerateColumns="False" IsReadOnly="True" Background="{StaticResource Background}">
                 <DataGrid.ItemContainerStyle>
                     <Style TargetType="DataGridRow">
                         <Style.Triggers>
@@ -33,16 +34,10 @@
                     <DataGridTextColumn Header="Время" Binding="{Binding score}" Width="*"/>
                     <DataGridTextColumn Header="Дорожка" Binding="{Binding running_track}" Width="*"/>
                     <DataGridTextColumn Header="Цвет" Binding="{Binding uniform_color}" Width="*"/>
-                    <DataGridTemplateColumn Width="*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="Изменить с/д" Name="DisqualifiedButton" Click="DisqualifiedButton_Click"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <Button x:Name="BackButton" Content="Назад" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BackButton_Click"/>
+            <Button x:Name="BackButton" FontFamily="Comic Sans MS" Content="Назад" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BackButton_Click" Background="{StaticResource BackgroundAccent}"/>
         </Grid>
     </Grid>
 </Page>

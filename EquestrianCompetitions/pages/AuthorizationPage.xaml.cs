@@ -37,17 +37,22 @@ namespace EquestrianCompetitions.Pages
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            var user = EquestrianCompetitionsEntities.GetContext().Users.ToList().Where(u => u.login == LoginInput.Text && u.password == PasswordInput.Text).SingleOrDefault();
-            MessageBox.Show("Авторизация прошла успаешно");
-            switch (user.role)
+            var user = EquestrianCompetitionsEntities.GetContext().Users.ToList().Where(u => u.login == LoginInput.Text && u.password == PasswordInput.Password).SingleOrDefault();
+            if (user != null)
             {
-                case 1:
-                    Manager.MainFrame.Navigate(new JockeyPage(user.login));
-                    break;
-                case 2:
-                    Manager.MainFrame.Navigate(new JudgePage());
-                    break;
+                MessageBox.Show("Авторизация прошла успаешно");
+                switch (user.role)
+                {
+                    case 1:
+                        Manager.MainFrame.Navigate(new JockeyPage(user.login));
+                        break;
+                    case 2:
+                        Manager.MainFrame.Navigate(new JudgePage());
+                        break;
+                }
             }
+            else
+                MessageBox.Show("Неверные данные");
         }
         private void FanMenuButton_Click(object sender, RoutedEventArgs e)
         {

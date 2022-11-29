@@ -7,7 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AuthorizationPage"
-      Loaded="Window_Loaded">
+      Loaded="Window_Loaded"
+      Background="{StaticResource Background}">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -23,13 +24,13 @@
             </Style>
         </Grid.Resources>
         <StackPanel Margin="20">
-            <Label Content="Имя пользователя:" Target="{Binding ElementName=LoginInput}" Width="150"/>
-            <TextBox Name="LoginInput" Text="jockey1" Width="150"/>
-            <Label Content="Пароль:" Target="{Binding ElementName=PasswordInput}" Width="150"/>
-            <TextBox Name="PasswordInput" Text="jockey1" Width="150"/>
-            <Button Content="Войти" x:Name="LoginButton" HorizontalAlignment="Center" Click="LoginButton_Click"/>
+            <Label FontFamily="Comic Sans MS" Content="Имя пользователя:" Target="{Binding ElementName=LoginInput}" Width="150"/>
+            <TextBox FontFamily="Comic Sans MS" Name="LoginInput" Width="150" Background="{StaticResource BackgroundAccent}"/>
+            <Label FontFamily="Comic Sans MS" Content="Пароль:" Target="{Binding ElementName=PasswordInput}" Width="150"/>
+            <PasswordBox FontFamily="Comic Sans MS"  PasswordChar="*" Name="PasswordInput" Width="150" Background="{StaticResource BackgroundAccent}"/>
+            <Button FontFamily="Comic Sans MS" Content="Войти" x:Name="LoginButton" HorizontalAlignment="Center" Click="LoginButton_Click" Background="{StaticResource BackgroundAccent}"/>
         </StackPanel>
-        <Button Grid.Row="1" x:Name="FanMenuButton" Content="Я болельщик" HorizontalAlignment="Left" Click="FanMenuButton_Click"/>
-        <Button Grid.Row="1" x:Name="BackButton" Content="Вернуться на главную форму" HorizontalAlignment="Right" Click="BackButton_Click"/>
+        <Button Grid.Row="1" x:Name="FanMenuButton" FontFamily="Comic Sans MS" Content="Я болельщик" HorizontalAlignment="Left" Click="FanMenuButton_Click" Background="{StaticResource BackgroundAccent}"/>
+        <Button Grid.Row="1" x:Name="BackButton" FontFamily="Comic Sans MS" Content="Вернуться на главную форму" HorizontalAlignment="Right" Click="BackButton_Click" Background="{StaticResource BackgroundAccent}"/>
     </Grid>
 </Page>

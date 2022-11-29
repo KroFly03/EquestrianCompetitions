@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="JockeyEditPage"
       Loaded="Window_Loaded"
-      Background="White">
+      Background="{StaticResource Background}">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -27,11 +27,11 @@
                     <Setter Property="Margin" Value="15"/>
                 </Style>
             </StackPanel.Resources>
-            <TextBlock Text="Логин"/>
-            <TextBlock Text="ФИО"/>
-            <TextBlock Text="День рождения"/>
-            <TextBlock Text="Ранг"/>
-            <TextBlock Text="Вес"/>
+            <TextBlock Text="Логин" FontFamily="Comic Sans MS"/>
+            <TextBlock Text="ФИО" FontFamily="Comic Sans MS"/>
+            <TextBlock Text="День рождения" FontFamily="Comic Sans MS"/>
+            <TextBlock Text="Ранг" FontFamily="Comic Sans MS"/>
+            <TextBlock Text="Вес" FontFamily="Comic Sans MS"/>
             <TextBlock Text=""/>
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left">
@@ -57,13 +57,13 @@
                     <Setter Property="Margin" Value="10"/>
                 </Style>
             </StackPanel.Resources>
-            <TextBlock Name="LoginInput" Text="{Binding login}"/>
-            <TextBox Name="FioInput" Text="{Binding fio}"/>
-            <DatePicker Name="Birthday" SelectedDate="{Binding birthday}"/>
-            <TextBox Name="Rank" Text="{Binding rank}"/>
-            <TextBox Name="Weight" Text="{Binding weight}"/>
-            <Button Content="Сохранить" Name="SaveButton" Click="SaveButton_Click"/>
+            <TextBlock Name="LoginInput" Text="{Binding login}" FontFamily="Comic Sans MS"/>
+            <TextBox Name="FioInput" Text="{Binding fio}" FontFamily="Comic Sans MS" Background="{StaticResource BackgroundAccent}"/>
+            <DatePicker Name="Birthday" SelectedDate="{Binding birthday}" FontFamily="Comic Sans MS" Background="{StaticResource BackgroundAccent}"/>
+            <TextBox Name="Rank" Text="{Binding rank}" FontFamily="Comic Sans MS" Background="{StaticResource BackgroundAccent}"/>
+            <TextBox Name="Weight" Text="{Binding weight}" FontFamily="Comic Sans MS" Background="{StaticResource BackgroundAccent}"/>
+            <Button Content="Сохранить" Name="SaveButton" FontFamily="Comic Sans MS" Click="SaveButton_Click" Background="{StaticResource BackgroundAccent}"/>
         </StackPanel>
-        <Button x:Name="BackButton" Content="Назад" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BackButton_Click"/>
+        <Button x:Name="BackButton" FontFamily="Comic Sans MS" Content="Назад" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BackButton_Click" Background="{StaticResource BackgroundAccent}"/>
     </Grid>
 </Page>

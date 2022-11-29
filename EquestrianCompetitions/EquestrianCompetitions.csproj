@@ -121,6 +121,9 @@
     <Compile Include="Pages\CurrentRaceResultPage.xaml.cs">
       <DependentUpon>CurrentRaceResultPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\EditDisqualificationPage.xaml.cs">
+      <DependentUpon>EditDisqualificationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\FanPage.xaml.cs">
       <DependentUpon>FanPage.xaml</DependentUpon>
     </Compile>
@@ -197,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\CurrentRaceResultPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditDisqualificationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="JudgePage"
-      Background="White">
+      Background="{StaticResource Background}">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -28,20 +28,20 @@
             </Style>
         </Grid.Resources>
         <StackPanel>
-            <Button x:Name="HorseInfoButton" Content="Просмотреть информацию&#xa; о лошадях" Click="HorseInfoButton_Click"/>
-            <Button x:Name="JockeyInfoButton" Content="Просмотреть информацию&#xa; о жокеях" Click="JockeyInfoButton_Click"/>
-            <Button x:Name="EditRaceResultButton" Content="Ввод и редактирование&#xa; результатов заезда" Click="EditRaceResultButton_Click"/>
+            <Button x:Name="HorseInfoButton" FontFamily="Comic Sans MS" Content="Просмотреть информацию&#xa; о лошадях" Click="HorseInfoButton_Click" Background="{StaticResource BackgroundAccent}"/>
+            <Button x:Name="JockeyInfoButton" FontFamily="Comic Sans MS" Content="Просмотреть информацию&#xa; о жокеях" Click="JockeyInfoButton_Click" Background="{StaticResource BackgroundAccent}"/>
+            <Button x:Name="EditRaceResultButton" FontFamily="Comic Sans MS" Content="Ввод и редактирование&#xa; результатов заезда" Click="EditRaceResultButton_Click" Background="{StaticResource BackgroundAccent}"/>
         </StackPanel>
         <StackPanel Grid.Column="1">
-            <Button x:Name="TrackAssignmentButton" Content="Назначение дорожки для&#xa; каждого участника заезда" Click="TrackAssignmentButton_Click"/>
-            <Button x:Name="MemberInfoButton" Content="Просмотр информации&#xa; об участниках заезда" Click="MemberInfoButton_Click"/>
+            <Button x:Name="TrackAssignmentButton" FontFamily="Comic Sans MS" Content="Назначение дорожки для&#xa; каждого участника заезда" Click="TrackAssignmentButton_Click" Background="{StaticResource BackgroundAccent}"/>
+            <Button x:Name="MemberInfoButton" FontFamily="Comic Sans MS" Content="Просмотр информации&#xa; об участниках заезда" Click="MemberInfoButton_Click" Background="{StaticResource BackgroundAccent}"/>
         </StackPanel>
         <StackPanel Grid.Column="2">
-            <Button x:Name="RaceScoreInfoButton" Content="Просмотр результатов&#xa; заезда" Click="RaceScoreInfoButton_Click"/>
-            <Button x:Name="CompetitionReportButton" Content="Отчет о результатах&#xa; состязания" Click="CompetitionReportButton_Click"/>
-            <Button x:Name="DisqualifiedEditButton" Content="Ввод информации о &#xa;нарушениях участников" Click="DisqualifiedEditButton_Click"/>
+            <Button x:Name="RaceScoreInfoButton" FontFamily="Comic Sans MS" Content="Просмотр результатов&#xa; заезда" Click="RaceScoreInfoButton_Click" Background="{StaticResource BackgroundAccent}"/>
+            <Button x:Name="CompetitionReportButton" FontFamily="Comic Sans MS" Content="Отчет о результатах&#xa; состязания" Click="CompetitionReportButton_Click" Background="{StaticResource BackgroundAccent}"/>
+            <Button x:Name="DisqualifiedEditButton" FontFamily="Comic Sans MS" Content="Ввод информации о &#xa;нарушениях участников" Click="DisqualifiedEditButton_Click" Background="{StaticResource BackgroundAccent}"/>
         </StackPanel>
-        <Button x:Name="BackButton" Content="Назад" Click="BackButton_Click" Grid.Column="0" Grid.Row="1"/>
+        <Button x:Name="BackButton" Content="Назад" FontFamily="Comic Sans MS" Click="BackButton_Click" Grid.Column="0" Grid.Row="1" Background="{StaticResource BackgroundAccent}"/>
         <Image Source="/Resources/judge.jpg" Grid.Column="2" Grid.Row="1"/>
     </Grid>
 </Page>

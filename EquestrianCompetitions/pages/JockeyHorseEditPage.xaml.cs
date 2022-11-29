@@ -21,18 +21,14 @@ namespace EquestrianCompetitions.Pages
     /// </summary>
     public partial class JockeyHorseEditPage : Page
     {
-        Members currentMember = new Members();
         List<HorseInfoView> horses = EquestrianCompetitionsEntities.GetContext().HorseInfoView.ToList();
+        List<Coaches> coaches = EquestrianCompetitionsEntities.GetContext().Coaches.ToList();
+        string login;
+        static int horseId;
         public JockeyHorseEditPage(string login)
         {
             InitializeComponent();
-            Name.ItemsSource = horses.Select(h => h.horse);
-            var members = EquestrianCompetitionsEntities.GetContext().Members.ToList();
-            int jockey = EquestrianCompetitionsEntities.GetContext().Jockeys.ToList().Where(j => j.login == login).Select(j => j.id).FirstOrDefault();
-            var member = members.Where(m => m.jockey == jockey);
-            if (member != null)
-                currentMember = member.First();
-            DataContext = currentMember;
+            this.login = login;
         }
 
         private void Name_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -41,6 +37,7 @@ namespace EquestrianCompetitions.Pages
             if (currentHorse != null)
             {
                 var horse = horses.Where(h => h.horse == currentHorse).SingleOrDefault();
+                horseId = horse.id;
                 Age.Text = horse.age.ToString();
                 Breed.Text = horse.breed;
                 Coach.Text = horse.coach;
@@ -54,7 +51,28 @@ namespace EquestrianCompetitions.Pages
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            int breed = EquestrianCompetitionsEntities.GetContext().Breeds.ToList().Where(b => b.name == Breed.Text).Select(b => b.id).SingleOrDefault();
+            int coach = EquestrianCompetitionsEntities.GetContext().Coaches.ToList().Where(c => c.fio == Coach.Text).Select(c => c.id).SingleOrDefault();
+            var horse = EquestrianCompetitionsEntities.GetContext().Horses.ToList().Where(h => h.id == horseId).SingleOrDefault();
+            horse.name = Name.Text;
+            horse.breed = breed;
+            horse.coach = coach;
+            horse.age = Convert.ToInt32(Age.Text);
+            try
+            {
+                EquestrianCompetitionsEntities.GetContext().SaveChanges();
+                MessageBox.Show("Информация успешно сохранена");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Name.ItemsSource = horses.Select(h => h.horse);
+            Coach.ItemsSource = coaches.Select(c => c.fio);
         }
     }
 }

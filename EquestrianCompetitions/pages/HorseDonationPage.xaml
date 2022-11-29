@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HorseDonationPage"
-      Background="White"
+      Background="{StaticResource Background}"
       Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -26,17 +26,21 @@
                     <Setter Property="Margin" Value="10"/>
                 </Style>
             </StackPanel.Resources>
-            <TextBlock Text="Код лошади"/>
-            <TextBlock Text="Сумма пожертвования"/>
-            <TextBlock Text="Номер банковской карты"/>
-            <TextBlock Text="Срок действия карты"/>
-            <TextBlock Text="Фамилия и имя отправителя"/>
-            <TextBlock Text="CVV2"/>
+            <TextBlock Text="Код лошади" FontFamily="Comic Sans MS"/>
+            <TextBlock Text="Сумма пожертвования" FontFamily="Comic Sans MS"/>
+            <TextBlock Text="Номер банковской карты" FontFamily="Comic Sans MS"/>
+            <TextBlock Text="Срок действия карты" FontFamily="Comic Sans MS"/>
+            <TextBlock Text="Фамилия и имя отправителя" FontFamily="Comic Sans MS"/>
+            <TextBlock Text="CVV2" FontFamily="Comic Sans MS"/>
             <TextBlock Text=""/>
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left">
             <StackPanel.Resources>
                 <Style TargetType="TextBox">
+                    <Setter Property="Width" Value="250"/>
+                    <Setter Property="Margin" Value="10"/>
+                </Style>
+                <Style TargetType="PasswordBox">
                     <Setter Property="Width" Value="250"/>
                     <Setter Property="Margin" Value="10"/>
                 </Style>
@@ -49,17 +53,17 @@
                     <Setter Property="Margin" Value="10"/>
                 </Style>
             </StackPanel.Resources>
-            <ComboBox Name="HorseList"/>
-            <TextBox Name="DonationAmount" PreviewTextInput="DonationAmount_PreviewTextInput"/>
-            <TextBox Name="Card" MaxLength="16" PreviewTextInput="Card_PreviewTextInput"/>
+            <ComboBox Name="HorseList" FontFamily="Comic Sans MS"/>
+            <TextBox Name="DonationAmount" FontFamily="Comic Sans MS" PreviewTextInput="DonationAmount_PreviewTextInput" Background="{StaticResource BackgroundAccent}"/>
+            <TextBox Name="Card" FontFamily="Comic Sans MS" MaxLength="16" PreviewTextInput="Card_PreviewTextInput" Background="{StaticResource BackgroundAccent}"/>
             <WrapPanel HorizontalAlignment="Center">
-                <TextBox Name="MonthCardDuration" Width="30" MaxLength="2" PreviewTextInput="MonthCardDuration_PreviewTextInput"/>
-                <TextBox Name="YearCardDuration" Width="40" MaxLength="4" PreviewTextInput="YearCardDuration_PreviewTextInput"/>
+                <TextBox Name="MonthCardDuration" FontFamily="Comic Sans MS" Width="30" MaxLength="2" PreviewTextInput="MonthCardDuration_PreviewTextInput" Background="{StaticResource BackgroundAccent}"/>
+                <TextBox Name="YearCardDuration" FontFamily="Comic Sans MS" Width="40" MaxLength="4" PreviewTextInput="YearCardDuration_PreviewTextInput" Background="{StaticResource BackgroundAccent}"/>
             </WrapPanel>
-            <TextBox Name="UserName" PreviewTextInput="UserName_PreviewTextInput"/>
-            <TextBox Name="CardCode" MaxLength="3" PreviewTextInput="CardCode_PreviewTextInput"/>
-            <Button Content="Подтвердить" Name="ConfirmButton" Click="ConfirmButton_Click"/>
+            <TextBox Name="UserName" FontFamily="Comic Sans MS" PreviewTextInput="UserName_PreviewTextInput" Background="{StaticResource BackgroundAccent}"/>
+            <PasswordBox Name="CardCode" FontFamily="Comic Sans MS" PasswordChar="*" MaxLength="3" PreviewTextInput="CardCode_PreviewTextInput" Background="{StaticResource BackgroundAccent}"/>
+            <Button Content="Подтвердить" FontFamily="Comic Sans MS" Name="ConfirmButton" Click="ConfirmButton_Click" Background="{StaticResource BackgroundAccent}"/>
         </StackPanel>
-        <Button x:Name="BackButton" Content="Назад" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BackButton_Click"/>
+        <Button x:Name="BackButton" FontFamily="Comic Sans MS" Content="Назад" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BackButton_Click" Background="{StaticResource BackgroundAccent}"/>
     </Grid>
 </Page>

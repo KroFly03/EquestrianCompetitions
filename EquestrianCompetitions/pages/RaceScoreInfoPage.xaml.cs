@@ -40,7 +40,10 @@ namespace EquestrianCompetitions.Pages
         private void InfoButton_Click(object sender, RoutedEventArgs e)
         {
             RaceView currentRaces = (sender as Button).DataContext as RaceView;
-            Manager.MainFrame.Navigate(new CurrentRaceResultPage(currentRaces.race, role));
+            if (role == 2)
+                Manager.MainFrame.Navigate(new EditDisqualificationPage(currentRaces.race));
+            else
+                Manager.MainFrame.Navigate(new CurrentRaceResultPage(currentRaces.race));
         }
     }
 }

@@ -41,7 +41,7 @@ namespace EquestrianCompetitions.Pages
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
             if (HorseList.Text != "" && DonationAmount.Text != "" && Card.Text != "" && MonthCardDuration.Text != "" && 
-                YearCardDuration.Text != "" && UserName.Text != "" && CardCode.Text != "")
+                YearCardDuration.Text != "" && UserName.Text != "" && CardCode.Password != "")
             {
                 MessageBox.Show("Благодарим Вас за пожертвование!");
                 HorseList.Text = "";
@@ -50,7 +50,7 @@ namespace EquestrianCompetitions.Pages
                 MonthCardDuration.Text = "";
                 YearCardDuration.Text = "";
                 UserName.Text = "";
-                CardCode.Text = "";
+                CardCode.Password = "";
             }
             else
             {

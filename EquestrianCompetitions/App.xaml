@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:EquestrianCompetitions"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <LinearGradientBrush x:Key="Background">
+            <LinearGradientBrush.GradientStops>
+                <GradientStop Color="#d2a0a0" Offset="1"/>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="BackgroundAccent">
+            <LinearGradientBrush.GradientStops>
+                <GradientStop Color="#aa5151" Offset="1"/>
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
     </Application.Resources>
 </Application>

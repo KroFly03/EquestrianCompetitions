@@ -7,7 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RaceMemberInfoPage"
-      Loaded="Window_Loaded">
+      Loaded="Window_Loaded"
+      Background="{StaticResource Background}">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -16,11 +17,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel>
-            <ComboBox x:Name="Competition" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Margin="10" SelectionChanged="Competition_SelectionChanged"/>
-            <ComboBox x:Name="Race" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" SelectionChanged="Race_SelectionChanged"/>
-            <Button Name="CancelButton" Content="Отменить фильтры" HorizontalAlignment="Center" Width="250" Margin="10" Click="CancelButton_Click"></Button>
+            <ComboBox x:Name="Competition" HorizontalAlignment="Center" FontFamily="Comic Sans MS" VerticalAlignment="Center" Width="250" Margin="10" SelectionChanged="Competition_SelectionChanged" />
+            <ComboBox x:Name="Race" HorizontalAlignment="Center" FontFamily="Comic Sans MS" VerticalAlignment="Center" Width="250" SelectionChanged="Race_SelectionChanged" />
+            <Button Name="CancelButton" Content="Отменить фильтры" FontFamily="Comic Sans MS" HorizontalAlignment="Center" Width="250" Margin="10" Click="CancelButton_Click" Background="{StaticResource BackgroundAccent}"></Button>
         </StackPanel>
-        <DataGrid x:Name="RaceMemberInfo" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1">
+        <DataGrid x:Name="RaceMemberInfo" FontFamily="Comic Sans MS" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Background="{StaticResource Background}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Участник" Binding="{Binding fio}" Width="*"/>
                 <DataGridTextColumn Header="Звание" Binding="{Binding rank}" Width="*"/>
@@ -28,6 +29,6 @@
                 <DataGridTextColumn Header="Лошадь" Binding="{Binding name}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="BackButton" Content="Назад" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BackButton_Click"/>
+        <Button x:Name="BackButton" Content="Назад" FontFamily="Comic Sans MS" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BackButton_Click" Background="{StaticResource BackgroundAccent}"/>
     </Grid>
 </Page>

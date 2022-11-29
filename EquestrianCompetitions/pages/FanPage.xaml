@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:EquestrianCompetitions.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="FanPage">
+      Title="FanPage"
+      Background="{StaticResource Background}">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -27,17 +28,17 @@
             </Style>
         </Grid.Resources>
         <StackPanel>
-            <Button x:Name="HorseInfoButton" Content="Просмотреть информацию&#xa; о лошадях" Click="HorseInfoButton_Click"/>
-            <Button x:Name="JockeyInfoButton" Content="Просмотреть информацию&#xa; о жокеях" Click="JockeyInfoButton_Click"/>
+            <Button x:Name="HorseInfoButton" FontFamily="Comic Sans MS" Content="Просмотреть информацию&#xa; о лошадях" Click="HorseInfoButton_Click" Background="{StaticResource BackgroundAccent}"/>
+            <Button x:Name="JockeyInfoButton" FontFamily="Comic Sans MS" Content="Просмотреть информацию&#xa; о жокеях" Click="JockeyInfoButton_Click" Background="{StaticResource BackgroundAccent}"/>
         </StackPanel>
         <StackPanel Grid.Column="1">
-            <Button x:Name="CompetitionInfoButton" Content="Просмотреть информацию&#xa; о состязаниях и заездах" Click="CompetitionInfoButton_Click"/>
-            <Button x:Name="MemberInfoButton" Content="Просмотр информации&#xa; об участниках заезда" Click="MemberInfoButton_Click"/>
+            <Button x:Name="CompetitionInfoButton" FontFamily="Comic Sans MS" Content="Просмотреть информацию&#xa; о состязаниях и заездах" Click="CompetitionInfoButton_Click" Background="{StaticResource BackgroundAccent}"/>
+            <Button x:Name="MemberInfoButton" FontFamily="Comic Sans MS" Content="Просмотр информации&#xa; об участниках заезда" Click="MemberInfoButton_Click" Background="{StaticResource BackgroundAccent}"/>
         </StackPanel>
         <StackPanel Grid.Column="2">
-            <Button x:Name="RaceScoreInfoButton" Content="Просмотр результатов&#xa; заезда" Click="RaceScoreInfoButton_Click"/>
-            <Button x:Name="DonateButton" Content="Пожертвовать средства&#xa; на содержание лошади" Click="DonateButton_Click"/>
+            <Button x:Name="RaceScoreInfoButton" FontFamily="Comic Sans MS" Content="Просмотр результатов&#xa; заезда" Click="RaceScoreInfoButton_Click" Background="{StaticResource BackgroundAccent}"/>
+            <Button x:Name="DonateButton" FontFamily="Comic Sans MS" Content="Пожертвовать средства&#xa; на содержание лошади" Click="DonateButton_Click" Background="{StaticResource BackgroundAccent}"/>
         </StackPanel>
-        <Button x:Name="BackButton" Content="Назад" Click="BackButton_Click" Grid.Column="1" Grid.Row="1"/>
+        <Button x:Name="BackButton" Content="Назад" FontFamily="Comic Sans MS" Click="BackButton_Click" Grid.Column="1" Grid.Row="1" Background="{StaticResource BackgroundAccent}"/>
     </Grid>
 </Page>

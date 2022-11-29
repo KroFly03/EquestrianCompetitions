@@ -13,7 +13,7 @@
 
         </Grid.RowDefinitions>
         <Image Source="/Resources/logo.png" HorizontalAlignment="Left"/>
-        <TextBlock Text="Конные состязания" FontSize="36" HorizontalAlignment="Center"/>
+        <TextBlock Text="Конные состязания" FontFamily="Comic Sans MS" FontSize="36" HorizontalAlignment="Center"/>
         <Frame NavigationUIVisibility="Hidden" Grid.Row="1" x:Name="Frame" BorderBrush="Black" BorderThickness="2"/>
     </Grid>
 </Window>

@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:EquestrianCompetitions.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="StartPage">
+      Title="StartPage"
+      Background="{StaticResource Background}">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -20,8 +21,8 @@
                 <Setter Property="Margin" Value="25"/>
             </Style>
         </Grid.Resources>
-        <Button x:Name="StartButton" Content="Начать работу" HorizontalAlignment="Left" Click="StartButton_Click"/>
-        <Button x:Name="InformationButton" Content="Информация о работе с программой" HorizontalAlignment="Center"/>
-        <Button x:Name="ExitButton" Content="Завершение работы" HorizontalAlignment="Right" Click="ExitButton_Click"/>
+        <Button x:Name="StartButton" Content="Начать работу" FontFamily="Comic Sans MS" HorizontalAlignment="Left" Click="StartButton_Click" Background="{StaticResource BackgroundAccent}"/>
+        <Button x:Name="InformationButton" Content="Информация о скачках" FontFamily="Comic Sans MS" HorizontalAlignment="Center" Click="InformationButton_Click" Background="{StaticResource BackgroundAccent}"/>
+        <Button x:Name="ExitButton" Content="Завершение работы" HorizontalAlignment="Right" FontFamily="Comic Sans MS" Click="ExitButton_Click" Background="{StaticResource BackgroundAccent}"/>
     </Grid>
 </Page>
